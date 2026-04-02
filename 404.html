@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConcepTheory｜找不到頁面</title>
+  <meta name="description" content="你所尋找的頁面不存在，請返回首頁、查看服務或聯絡 ConcepTheory。" />
+  <meta name="robots" content="noindex" />
+  <meta property="og:title" content="ConcepTheory｜找不到頁面" />
+  <meta property="og:description" content="頁面不存在，請返回首頁或瀏覽其他服務內容。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_HK" />
+  <meta name="theme-color" content="#0a0f1d" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans HK", sans-serif;
+      background: #0a0f1d;
+      color: #f5f7fb;
+    }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.22), transparent 30%),
+        radial-gradient(circle at center, rgba(236, 72, 153, 0.12), transparent 35%),
+        linear-gradient(180deg, #0a0f1d 0%, #10182e 55%, #0a0f1d 100%);
+    }
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.1); }
+    .glass-strong { background: rgba(255,255,255,0.08); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.12); }
+    .gradient-text { background: linear-gradient(90deg, #8b5cf6, #06b6d4, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .section-line { border-top: 1px solid rgba(255,255,255,0.08); }
+    .glow { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px rgba(0,0,0,0.35); }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; }
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .mobile-menu.open { max-height: 700px; }
+  </style>
+</head>
+<body>
+  <a href="contact.html" class="whatsapp-float px-5 py-3 rounded-full bg-green-500 text-white font-semibold shadow-lg hover:bg-green-400 transition">WhatsApp 諮詢</a>
+
+  <div class="w-full border-b border-white/10 bg-black/20 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end text-xs md:text-sm text-gray-300">
+      <span class="text-cyan-300 mr-2">香港時間</span>
+      <span id="current-datetime">載入時間中...</span>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-black/20 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <a href="index.html" class="text-xl md:text-2xl font-bold tracking-wide">ConcepTheory</a>
+          <div class="text-xs text-gray-400">Where strategy meets execution</div>
+        </div>
+
+        <nav class="hidden lg:flex items-center gap-6 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden md:inline-flex px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+          <button id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/15 bg-white/5 text-white" aria-label="Open Menu" aria-expanded="false" type="button">☰</button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu lg:hidden">
+        <div class="mt-4 glass rounded-2xl p-4 flex flex-col gap-3 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+          <a href="contact.html" class="mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-bg min-h-[70vh] flex items-center">
+    <div class="max-w-7xl mx-auto px-6 w-full">
+      <div class="glass-strong rounded-3xl p-10 md:p-16 glow text-center max-w-4xl mx-auto">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">404 Error</p>
+        <h1 class="text-5xl md:text-7xl font-bold mt-4">搵唔到呢一頁</h1>
+        <p class="text-gray-300 mt-6 text-lg leading-relaxed max-w-2xl mx-auto">
+          你所尋找嘅頁面可能已被移動、刪除，或者網址輸入有誤。
+          你可以返回首頁、瀏覽服務，或者直接聯絡我哋。
+        </p>
+
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <a href="index.html" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">返回首頁</a>
+          <a href="index.html#services" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">瀏覽服務</a>
+          <a href="contact.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">聯絡我哋</a>
+        </div>
+
+        <div class="mt-10 grid sm:grid-cols-3 gap-4 text-left">
+          <a href="seo.html" class="glass rounded-2xl p-5 hover:bg-white/10 transition">
+            <div class="font-semibold">SEO</div>
+            <div class="text-sm text-gray-300 mt-2">了解自然搜尋曝光方向</div>
+          </a>
+          <a href="geo.html" class="glass rounded-2xl p-5 hover:bg-white/10 transition">
+            <div class="font-semibold">GEO</div>
+            <div class="text-sm text-gray-300 mt-2">了解 AI 搜尋可見度方向</div>
+          </a>
+          <a href="google-maps.html" class="glass rounded-2xl p-5 hover:bg-white/10 transition">
+            <div class="font-semibold">Google Maps</div>
+            <div class="text-sm text-gray-300 mt-2">了解本地搜尋與地圖曝光</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section-line py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold">ConcepTheory</h3>
+        <p class="text-gray-300 mt-4 leading-relaxed max-w-xl">
+          我哋為品牌提供網站製作、SEO、GEO、Google Maps、社交媒體、內容策劃及 KOL 合作等整合服務，
+          幫助你建立更完整嘅數碼曝光系統。
+        </p>
+      </div>
+      <div>
+        <div class="font-semibold mb-4">服務</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="website-design.html" class="hover:text-white">網站製作</a></li>
+          <li><a href="seo.html" class="hover:text-white">SEO</a></li>
+          <li><a href="geo.html" class="hover:text-white">GEO</a></li>
+          <li><a href="google-maps.html" class="hover:text-white">Google Maps</a></li>
+          <li><a href="social-media.html" class="hover:text-white">社交媒體</a></li>
+          <li><a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold mb-4">更多</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="join-us.html" class="hover:text-white">加入我哋</a></li>
+          <li><a href="blog_index.html" class="hover:text-white">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-white">聯絡我哋</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">© 2026 ConcepTheory. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function updateDateTime() {
+      const el = document.getElementById("current-datetime");
+      if (!el) return;
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat("zh-HK", {
+        timeZone: "Asia/Hong_Kong",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
+      el.textContent = formatter.format(now);
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("open");
+        const expanded = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", (!expanded).toString());
+        menuButton.textContent = expanded ? "☰" : "✕";
+      });
+      mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.textContent = "☰";
+        });
+      });
+    }
+  </script>
+</body>
+</html>

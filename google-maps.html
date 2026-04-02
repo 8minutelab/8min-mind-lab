@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConcepTheory｜Google Maps 本地搜尋優化</title>
+  <meta name="description" content="ConcepTheory 提供 Google Maps 本地搜尋優化服務，協助品牌提升地圖曝光、商家資料完整度、評論策略與本地查詢入口。" />
+  <meta property="og:title" content="ConcepTheory｜Google Maps 本地搜尋優化" />
+  <meta property="og:description" content="為本地商戶、服務品牌與地區生意建立更完整 Google Maps 曝光與查詢入口。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_HK" />
+  <meta name="theme-color" content="#0a0f1d" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans HK", sans-serif;
+      background: #0a0f1d;
+      color: #f5f7fb;
+    }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.22), transparent 30%),
+        radial-gradient(circle at center, rgba(236, 72, 153, 0.12), transparent 35%),
+        linear-gradient(180deg, #0a0f1d 0%, #10182e 55%, #0a0f1d 100%);
+    }
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .glass-strong {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #8b5cf6, #06b6d4, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-line { border-top: 1px solid rgba(255,255,255,0.08); }
+    .glow { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px rgba(0,0,0,0.35); }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; }
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .mobile-menu.open { max-height: 700px; }
+  </style>
+</head>
+<body>
+  <a href="contact.html" class="whatsapp-float px-5 py-3 rounded-full bg-green-500 text-white font-semibold shadow-lg hover:bg-green-400 transition">
+    WhatsApp 諮詢
+  </a>
+
+  <div class="w-full border-b border-white/10 bg-black/20 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end text-xs md:text-sm text-gray-300">
+      <span class="text-cyan-300 mr-2">香港時間</span>
+      <span id="current-datetime">載入時間中...</span>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-black/20 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <a href="index.html" class="text-xl md:text-2xl font-bold tracking-wide">ConcepTheory</a>
+          <div class="text-xs text-gray-400">Where strategy meets execution</div>
+        </div>
+
+        <nav class="hidden lg:flex items-center gap-6 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden md:inline-flex px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+          <button id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/15 bg-white/5 text-white" aria-label="Open Menu" aria-expanded="false" type="button">☰</button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu lg:hidden">
+        <div class="mt-4 glass rounded-2xl p-4 flex flex-col gap-3 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+          <a href="contact.html" class="mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-bg overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-24 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-4">Google Maps • Local Search • Local Visibility</p>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          本地生意唔止靠網站，
+          <span class="gradient-text">Google Maps 亦係重要查詢入口</span>
+        </h1>
+        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+          對好多地區商戶、服務中心、工作室、診所、零售同餐飲品牌嚟講，
+          Google Maps 唔止係地圖位置，而係客戶主動搵你、比較你、決定聯絡你之前最常見嘅入口之一。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#maps-details" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">了解 Google Maps</a>
+          <a href="contact.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">查詢 Maps 優化</a>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-300">
+          <div class="glass rounded-2xl p-4">
+            <div class="text-white font-semibold">地圖曝光</div>
+            <div class="mt-2">提升本地搜尋中被見到機會</div>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <div class="text-white font-semibold">商家資料完整度</div>
+            <div class="mt-2">令品牌資訊更清楚可信</div>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <div class="text-white font-semibold">查詢轉化入口</div>
+            <div class="mt-2">令用戶更容易直接行動</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 glow">
+        <div class="text-sm text-cyan-300 mb-4">What Maps Optimization Covers</div>
+        <div class="space-y-4">
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">商家頁資料整理</h3>
+            <p class="text-sm text-gray-300">包括類別、描述、營業時間、服務區域、照片與聯絡方式。</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">評論與信任訊號</h3>
+            <p class="text-sm text-gray-300">評論節奏、回覆方式同整體口碑感受，會影響用戶判斷。</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">網站與地區內容配合</h3>
+            <p class="text-sm text-gray-300">Maps 唔係獨立存在，通常要同網站、SEO、本地內容一齊處理。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="maps-details" class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-4xl">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Local Search Matters</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">點解 Google Maps 咁重要？</h2>
+        <p class="text-gray-300 mt-6 text-lg leading-relaxed">
+          因為本地搜尋通常帶有好高行動意圖。當用戶搜尋附近服務、品牌名稱、地區類別或者直接比較商戶時，
+          Google Maps 會成為第一時間接觸品牌嘅位置。如果地圖資訊唔完整、評論太弱、品牌描述唔清楚，
+          就可能直接流失查詢機會。
+        </p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">提升本地曝光</h3>
+          <p class="text-gray-300">令地區搜尋、品牌搜尋與服務搜尋時更容易出現你嘅資料。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">加強第一印象</h3>
+          <p class="text-gray-300">照片、評論、資料完整度會直接影響客戶對品牌嘅初步觀感。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">縮短查詢路徑</h3>
+          <p class="text-gray-300">客戶可以喺地圖頁直接打電話、導航、查詢或去你網站了解更多。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <div class="glass rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Our Maps Approach</p>
+        <h2 class="text-3xl font-bold mt-4">我哋會點做？</h2>
+        <ul class="mt-6 space-y-4 text-gray-300">
+          <li>・檢視 Google Business Profile 資料完整度</li>
+          <li>・整理商家描述、分類、服務內容與地區訊息</li>
+          <li>・建議評論節奏與品牌回覆方向</li>
+          <li>・配合 <a href="seo.html" class="text-cyan-300 hover:text-white underline">SEO</a> / <a href="website-design.html" class="text-cyan-300 hover:text-white underline">網站內容</a> / 本地頁面一致性</li>
+          <li>・幫 Maps 由「有頁面」變成「有查詢入口」</li>
+        </ul>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Best Practice</p>
+        <h2 class="text-3xl font-bold mt-4">Maps 唔止係填資料，而係建立本地信任感</h2>
+        <p class="text-gray-300 mt-6 leading-relaxed">
+          好多商戶以為只要開咗 Google 商家頁就完成，但實際上真正會影響客戶決定嘅，
+          係資料夠唔夠完整、評論感覺專唔專業、地區訊號夠唔夠清楚，同埋網站內容有冇互相支持。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-4xl">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Who It Is For</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">Google Maps 適合邊類品牌？</h2>
+        <p class="text-gray-300 mt-6 text-lg leading-relaxed">
+          如果你本身係做地區生意、本地服務、面向香港客戶、或者客戶通常會搜尋附近選擇，
+          Maps 優化通常都係高優先處理項目之一。
+        </p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">地區商戶</h3>
+          <p class="text-gray-300">例如餐飲、美容、零售、診所、工作室、補習、健身等。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">服務型品牌</h3>
+          <p class="text-gray-300">例如搬屋、裝修、清潔、攝影、地區顧問與上門服務品牌。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">想提升本地查詢量</h3>
+          <p class="text-gray-300">如果你想客戶更快搵到你、打電話比你、或者去你網站睇更多，Maps 很重要。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <div class="glass rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Maps + Website</p>
+        <h2 class="text-3xl font-bold mt-4">Google Maps 同網站要點配合？</h2>
+        <p class="text-gray-300 mt-6 leading-relaxed">
+          Maps 通常係客戶第一眼接觸品牌嘅地方，而網站就係進一步了解你專業度與服務內容嘅位置。
+          所以如果 Maps 資訊同網站講法唔一致，會削弱信任感；相反，兩者互相支持，查詢機會通常會更高。
+        </p>
+      </div>
+
+      <div class="glass rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Maps + SEO</p>
+        <h2 class="text-3xl font-bold mt-4">本地搜尋效果通常唔係單靠一個平台</h2>
+        <p class="text-gray-300 mt-6 leading-relaxed">
+          最理想做法通常係將 Google Maps、網站地區內容、SEO 同品牌訊息一致性一齊整理，
+          令客戶喺不同入口見到你時，都得到一致而清晰嘅印象。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="glass-strong rounded-3xl p-8 md:p-12 glow">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Call To Action</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-4">想提升本地搜尋同 Google Maps 查詢機會？</h2>
+        <p class="text-gray-300 mt-5 text-lg max-w-3xl leading-relaxed">
+          如果你想整理品牌地圖曝光、商家頁資訊、評論策略同網站配合方向，
+          我哋可以按你業務性質幫你規劃更適合嘅本地曝光做法。
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="contact.html" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即查詢</a>
+          <a href="seo.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">了解 SEO 配合</a>
+          <a href="blog_google-maps-optimization-hong-kong.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">閱讀相關文章</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section-line py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold">ConcepTheory</h3>
+        <p class="text-gray-300 mt-4 leading-relaxed max-w-xl">
+          我哋為品牌提供網站製作、SEO、GEO、Google Maps、社交媒體、內容策劃及 KOL 合作等整合服務，
+          幫助你建立更完整嘅數碼曝光系統。
+        </p>
+      </div>
+      <div>
+        <div class="font-semibold mb-4">服務</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="website-design.html" class="hover:text-white">網站製作</a></li>
+          <li><a href="seo.html" class="hover:text-white">SEO</a></li>
+          <li><a href="geo.html" class="hover:text-white">GEO</a></li>
+          <li><a href="google-maps.html" class="hover:text-white">Google Maps</a></li>
+          <li><a href="social-media.html" class="hover:text-white">社交媒體</a></li>
+          <li><a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold mb-4">更多</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="join-us.html" class="hover:text-white">加入我哋</a></li>
+          <li><a href="blog_index.html" class="hover:text-white">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-white">聯絡我哋</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">© 2026 ConcepTheory. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function updateDateTime() {
+      const el = document.getElementById("current-datetime");
+      if (!el) return;
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat("zh-HK", {
+        timeZone: "Asia/Hong_Kong",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
+      el.textContent = formatter.format(now);
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("open");
+        const expanded = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", (!expanded).toString());
+        menuButton.textContent = expanded ? "☰" : "✕";
+      });
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.textContent = "☰";
+        });
+      });
+    }
+  </script>
+</body>
+</html>

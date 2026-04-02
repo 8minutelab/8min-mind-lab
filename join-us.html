@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConcepTheory｜加入我哋</title>
+  <meta name="description" content="加入 ConcepTheory，與我哋一齊參與品牌網站、SEO、內容策略、社交媒體與創意合作方向。" />
+  <meta property="og:title" content="ConcepTheory｜加入我哋" />
+  <meta property="og:description" content="如果你對品牌策略、內容、網站、社媒或創意合作有興趣，歡迎了解 ConcepTheory。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_HK" />
+  <meta name="theme-color" content="#0a0f1d" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans HK", sans-serif;
+      background: #0a0f1d;
+      color: #f5f7fb;
+    }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.22), transparent 30%),
+        radial-gradient(circle at center, rgba(236, 72, 153, 0.12), transparent 35%),
+        linear-gradient(180deg, #0a0f1d 0%, #10182e 55%, #0a0f1d 100%);
+    }
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.1); }
+    .glass-strong { background: rgba(255,255,255,0.08); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.12); }
+    .gradient-text { background: linear-gradient(90deg, #8b5cf6, #06b6d4, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .section-line { border-top: 1px solid rgba(255,255,255,0.08); }
+    .glow { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px rgba(0,0,0,0.35); }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; }
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .mobile-menu.open { max-height: 700px; }
+  </style>
+</head>
+<body>
+  <a href="contact.html" class="whatsapp-float px-5 py-3 rounded-full bg-green-500 text-white font-semibold shadow-lg hover:bg-green-400 transition">WhatsApp 諮詢</a>
+
+  <div class="w-full border-b border-white/10 bg-black/20 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end text-xs md:text-sm text-gray-300">
+      <span class="text-cyan-300 mr-2">香港時間</span>
+      <span id="current-datetime">載入時間中...</span>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-black/20 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <a href="index.html" class="text-xl md:text-2xl font-bold tracking-wide">ConcepTheory</a>
+          <div class="text-xs text-gray-400">Where strategy meets execution</div>
+        </div>
+
+        <nav class="hidden lg:flex items-center gap-6 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden md:inline-flex px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+          <button id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/15 bg-white/5 text-white" aria-label="Open Menu" aria-expanded="false" type="button">☰</button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu lg:hidden">
+        <div class="mt-4 glass rounded-2xl p-4 flex flex-col gap-3 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+          <a href="contact.html" class="mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-bg overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-24 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-4">Join Us • Collaborate • Create</p>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          如果你對品牌、內容、網站或創意合作有興趣，
+          <span class="gradient-text">歡迎加入我哋</span>
+        </h1>
+        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+          ConcepTheory 希望集合對品牌策略、內容創作、網站結構、搜尋曝光、社交媒體與創意合作有熱情嘅人，
+          一齊參與更有系統、更有思考嘅品牌工作。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#join-details" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">了解合作方向</a>
+          <a href="contact.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">聯絡我哋</a>
+        </div>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 glow">
+        <div class="space-y-4">
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">品牌策略 / 內容思維</h3>
+            <p class="text-sm text-gray-300">如果你喜歡由品牌角度思考問題，會好適合我哋。</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">設計 / 網站 / 數碼曝光</h3>
+            <p class="text-sm text-gray-300">由門面到曝光路徑，都需要有系統地整合。</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">創意合作 / 執行能力</h3>
+            <p class="text-sm text-gray-300">有想法之外，亦重視把想法落地。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="join-details" class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-4xl">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Who We Look For</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">我哋希望搵咩類型嘅人？</h2>
+        <p class="text-gray-300 mt-6 text-lg leading-relaxed">
+          我哋唔單止睇 title，而係睇你點理解品牌、內容同執行之間嘅關係。
+          如果你有清晰思考能力、重視內容質素、願意一齊打磨細節，
+          無論你係 full-time、freelance、project-based collaborator，都可以傾。
+        </p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">內容 / 文案</h3>
+          <p class="text-gray-300">懂品牌語氣、懂內容角度、懂點樣令訊息更清楚。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">設計 / 網站</h3>
+          <p class="text-gray-300">重視體驗、結構、視覺與品牌一致性，而唔只係畫面。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">社媒 / Growth / 合作</h3>
+          <p class="text-gray-300">懂平台節奏、創作者合作、曝光延伸與 campaign thinking。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <div class="glass rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">How We Work</p>
+        <h2 class="text-3xl font-bold mt-4">我哋重視咩工作方式？</h2>
+        <ul class="mt-6 space-y-4 text-gray-300">
+          <li>・有策略思維，而唔止係執行任務</li>
+          <li>・願意整理資訊，同品牌一齊打磨清晰方向</li>
+          <li>・重視細節、節奏、品質與一致性</li>
+          <li>・有獨立工作能力，同時願意合作溝通</li>
+          <li>・願意將創意變成可落地方案</li>
+        </ul>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Open Minded</p>
+        <h2 class="text-3xl font-bold mt-4">未必一定要對應固定職位</h2>
+        <p class="text-gray-300 mt-6 leading-relaxed">
+          如果你覺得自己未必屬於傳統職位分類，但你有清楚技能、有強烈作品方向、
+          或者覺得自己可以同我哋互補，都歡迎主動聯絡。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="glass-strong rounded-3xl p-8 md:p-12 glow">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Call To Action</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-4">想同我哋一齊做更有系統嘅品牌工作？</h2>
+        <p class="text-gray-300 mt-5 text-lg max-w-3xl leading-relaxed">
+          如果你對內容、網站、策略、社媒或合作方向有熱情，
+          可以先聯絡我哋，簡單介紹下你自己、經驗同想做嘅方向。
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="contact.html" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即聯絡</a>
+          <a href="blog_index.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">睇更多內容</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section-line py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold">ConcepTheory</h3>
+        <p class="text-gray-300 mt-4 leading-relaxed max-w-xl">
+          我哋為品牌提供網站製作、SEO、GEO、Google Maps、社交媒體、內容策劃及 KOL 合作等整合服務，
+          幫助你建立更完整嘅數碼曝光系統。
+        </p>
+      </div>
+      <div>
+        <div class="font-semibold mb-4">服務</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="website-design.html" class="hover:text-white">網站製作</a></li>
+          <li><a href="seo.html" class="hover:text-white">SEO</a></li>
+          <li><a href="geo.html" class="hover:text-white">GEO</a></li>
+          <li><a href="google-maps.html" class="hover:text-white">Google Maps</a></li>
+          <li><a href="social-media.html" class="hover:text-white">社交媒體</a></li>
+          <li><a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold mb-4">更多</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="join-us.html" class="hover:text-white">加入我哋</a></li>
+          <li><a href="blog_index.html" class="hover:text-white">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-white">聯絡我哋</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">© 2026 ConcepTheory. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function updateDateTime() {
+      const el = document.getElementById("current-datetime");
+      if (!el) return;
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat("zh-HK", {
+        timeZone: "Asia/Hong_Kong",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
+      el.textContent = formatter.format(now);
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("open");
+        const expanded = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", (!expanded).toString());
+        menuButton.textContent = expanded ? "☰" : "✕";
+      });
+      mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.textContent = "☰";
+        });
+      });
+    }
+  </script>
+</body>
+</html>

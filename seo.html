@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConcepTheory｜SEO 搜尋引擎優化</title>
+  <meta name="description" content="ConcepTheory 提供 SEO 搜尋引擎優化服務，協助品牌提升自然搜尋曝光、內容可見度、網站結構與長線流量基礎。" />
+  <meta property="og:title" content="ConcepTheory｜SEO 搜尋引擎優化" />
+  <meta property="og:description" content="由網站內容、服務頁、FAQ、地區頁到搜尋結構，幫品牌建立更長線嘅自然搜尋曝光基礎。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_HK" />
+  <meta name="theme-color" content="#0a0f1d" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans HK", sans-serif;
+      background: #0a0f1d;
+      color: #f5f7fb;
+    }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.22), transparent 30%),
+        radial-gradient(circle at center, rgba(236, 72, 153, 0.12), transparent 35%),
+        linear-gradient(180deg, #0a0f1d 0%, #10182e 55%, #0a0f1d 100%);
+    }
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .glass-strong {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #8b5cf6, #06b6d4, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-line { border-top: 1px solid rgba(255,255,255,0.08); }
+    .glow { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px rgba(0,0,0,0.35); }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; }
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .mobile-menu.open { max-height: 700px; }
+  </style>
+</head>
+<body>
+  <a href="contact.html" class="whatsapp-float px-5 py-3 rounded-full bg-green-500 text-white font-semibold shadow-lg hover:bg-green-400 transition">
+    WhatsApp 諮詢
+  </a>
+
+  <div class="w-full border-b border-white/10 bg-black/20 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end text-xs md:text-sm text-gray-300">
+      <span class="text-cyan-300 mr-2">香港時間</span>
+      <span id="current-datetime">載入時間中...</span>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-black/20 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <a href="index.html" class="text-xl md:text-2xl font-bold tracking-wide">ConcepTheory</a>
+          <div class="text-xs text-gray-400">Where strategy meets execution</div>
+        </div>
+
+        <nav class="hidden lg:flex items-center gap-6 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden md:inline-flex px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+          <button id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/15 bg-white/5 text-white" aria-label="Open Menu" aria-expanded="false" type="button">☰</button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="mobile-menu lg:hidden">
+        <div class="mt-4 glass rounded-2xl p-4 flex flex-col gap-3 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+          <a href="contact.html" class="mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-bg overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-24 md:py-28 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-4">SEO • Search Visibility • Content Structure</p>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          建立更長線自然曝光，
+          <span class="gradient-text">令品牌更容易喺搜尋中被搵到</span>
+        </h1>
+        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+          SEO 唔只係放關鍵字，而係整體網站結構、內容清晰度、服務頁設計、FAQ 規劃同品牌訊息一致性。
+          如果想令品牌長線有更穩定搜尋曝光，SEO 係重要基礎。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#seo-details" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">了解 SEO</a>
+          <a href="contact.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">查詢 SEO 策略</a>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm text-gray-300">
+          <div class="glass rounded-2xl p-4">
+            <div class="text-white font-semibold">網站結構</div>
+            <div class="mt-2">令搜尋系統更易理解頁面關係</div>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <div class="text-white font-semibold">內容布局</div>
+            <div class="mt-2">圍繞用戶搜尋問題規劃內容</div>
+          </div>
+          <div class="glass rounded-2xl p-4">
+            <div class="text-white font-semibold">長線流量基礎</div>
+            <div class="mt-2">建立可累積自然曝光資產</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 glow">
+        <div class="text-sm text-cyan-300 mb-4">What SEO Covers</div>
+        <div class="space-y-4">
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">服務頁與內容結構</h3>
+            <p class="text-sm text-gray-300">整理網站頁面層次、主題關係與重點頁面定位。</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">FAQ / 問題導向內容</h3>
+            <p class="text-sm text-gray-300">回應用戶真正會問嘅問題，提升內容實用性與覆蓋度。</p>
+          </div>
+          <div class="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <h3 class="font-semibold mb-1">搜尋與品牌訊息一致性</h3>
+            <p class="text-sm text-gray-300">令網站、地圖、本地頁與品牌敘事互相支持。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="seo-details" class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-4xl">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Why SEO Still Matters</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">點解品牌仲需要 SEO？</h2>
+        <p class="text-gray-300 mt-6 text-lg leading-relaxed">
+          因為搜尋仍然係好多人主動搵服務、做比較、了解品牌時最直接嘅入口。
+          一個有策略嘅 SEO 佈局，可以令你唔只靠短期廣告，而係慢慢建立自然曝光基礎，
+          令網站成為可累積流量同查詢嘅資產。
+        </p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">提升搜尋可見度</h3>
+          <p class="text-gray-300">當客戶主動搜尋相關服務時，更容易見到你嘅內容與頁面。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">建立信任與專業感</h3>
+          <p class="text-gray-300">清楚、完整、有邏輯嘅內容，有助增加品牌可信度。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">支持長線增長</h3>
+          <p class="text-gray-300">SEO 係長線資產，會隨住網站內容與結構優化慢慢累積效果。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <div class="glass rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Our SEO Approach</p>
+        <h2 class="text-3xl font-bold mt-4">我哋會點做？</h2>
+        <ul class="mt-6 space-y-4 text-gray-300">
+          <li>・整理網站頁面架構與服務分類</li>
+          <li>・優化服務頁標題、內容層次與 FAQ 方向</li>
+          <li>・規劃適合品牌嘅內容主題與搜尋切入角度</li>
+          <li>・配合 <a href="geo.html" class="text-cyan-300 hover:text-white underline">GEO</a> / <a href="google-maps.html" class="text-cyan-300 hover:text-white underline">Google Maps</a> / 品牌內容一致性</li>
+          <li>・幫網站由「有內容」變成「更容易被理解」</li>
+        </ul>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">SEO Is Not Just Technical</p>
+        <h2 class="text-3xl font-bold mt-4">SEO 唔止係技術設定，仲關乎內容策略</h2>
+        <p class="text-gray-300 mt-6 leading-relaxed">
+          好多品牌以為 SEO 只係調 metadata 或執 page speed，
+          但其實真正影響搜尋理解力嘅，仲包括頁面是否清晰、是否答到問題、服務內容有冇邏輯。
+          所以我哋會由品牌角度同內容角度一齊去整理。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-4xl">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Who It Is For</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">SEO 適合邊類品牌？</h2>
+        <p class="text-gray-300 mt-6 text-lg leading-relaxed">
+          如果你想提升自然搜尋曝光、已有網站但內容比較散、又或者想建立長線可累積流量基礎，
+          SEO 都係值得優先處理嘅方向。
+        </p>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">專業服務品牌</h3>
+          <p class="text-gray-300">例如顧問、醫療、教育、B2B、設計與地區服務品牌等。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">已有網站但成效一般</h3>
+          <p class="text-gray-300">網站有內容但唔夠清晰，未能有效帶來搜尋曝光與查詢。</p>
+        </div>
+        <div class="glass rounded-2xl p-6">
+          <h3 class="text-xl font-semibold mb-3">想減少只靠廣告</h3>
+          <p class="text-gray-300">希望逐步建立自然流量來源，令推廣結構更平衡。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-8">
+      <div class="glass rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">SEO + GEO</p>
+        <h2 class="text-3xl font-bold mt-4">SEO 同 GEO 係點配合？</h2>
+        <p class="text-gray-300 mt-6 leading-relaxed">
+          SEO 主要處理傳統搜尋曝光，而 GEO 更聚焦喺 AI 搜尋與生成式答案下嘅可見度。
+          如果網站內容本身 SEO 基礎唔清晰，GEO 一般都難以發揮；相反，SEO 做得好，再加 GEO，
+          會令品牌更適應未來搜尋方式。
+        </p>
+      </div>
+
+      <div class="glass rounded-3xl p-8">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Long-Term View</p>
+        <h2 class="text-3xl font-bold mt-4">SEO 係慢，但值得累積</h2>
+        <p class="text-gray-300 mt-6 leading-relaxed">
+          SEO 通常唔係即日見效，但佢嘅價值係可持續、可累積。當網站結構、內容邏輯與品牌訊息越來越成熟，
+          搜尋系統亦更容易理解你，長線會為品牌帶來更穩定曝光基礎。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="glass-strong rounded-3xl p-8 md:p-12 glow">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Call To Action</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-4">想令網站內容更容易被搜尋系統理解？</h2>
+        <p class="text-gray-300 mt-5 text-lg max-w-3xl leading-relaxed">
+          如果你想由網站內容、服務頁、FAQ 到整體搜尋結構整理得更清楚，
+          我哋可以按你品牌現況幫你規劃合適 SEO 方向。
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="contact.html" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即查詢</a>
+          <a href="geo.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">了解 GEO 配合</a>
+          <a href="blog_index.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">睇更多觀點</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section-line py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold">ConcepTheory</h3>
+        <p class="text-gray-300 mt-4 leading-relaxed max-w-xl">
+          我哋為品牌提供網站製作、SEO、GEO、Google Maps、社交媒體、內容策劃及 KOL 合作等整合服務，
+          幫助你建立更完整嘅數碼曝光系統。
+        </p>
+      </div>
+      <div>
+        <div class="font-semibold mb-4">服務</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="website-design.html" class="hover:text-white">網站製作</a></li>
+          <li><a href="seo.html" class="hover:text-white">SEO</a></li>
+          <li><a href="geo.html" class="hover:text-white">GEO</a></li>
+          <li><a href="google-maps.html" class="hover:text-white">Google Maps</a></li>
+          <li><a href="social-media.html" class="hover:text-white">社交媒體</a></li>
+          <li><a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="font-semibold mb-4">更多</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="join-us.html" class="hover:text-white">加入我哋</a></li>
+          <li><a href="blog_index.html" class="hover:text-white">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-white">聯絡我哋</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">© 2026 ConcepTheory. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function updateDateTime() {
+      const el = document.getElementById("current-datetime");
+      if (!el) return;
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat("zh-HK", {
+        timeZone: "Asia/Hong_Kong",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
+      el.textContent = formatter.format(now);
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("open");
+        const expanded = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", (!expanded).toString());
+        menuButton.textContent = expanded ? "☰" : "✕";
+      });
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.textContent = "☰";
+        });
+      });
+    }
+  </script>
+</body>
+</html>

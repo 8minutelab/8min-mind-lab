@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KOL 合作點樣先唔會變成一次性曝光？｜ConcepTheory Blog</title>
+  <meta name="description" content="了解 KOL 合作點樣由選人、內容角度、合作方式到後續延伸，避免淪為一次性曝光。" />
+  <meta property="og:title" content="KOL 合作點樣先唔會變成一次性曝光？｜ConcepTheory Blog" />
+  <meta property="og:description" content="KOL 合作唔止係搵人出 Post，而係合作對象、內容角度與品牌延伸。" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="zh_HK" />
+  <meta name="theme-color" content="#0a0f1d" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans HK", sans-serif; background: #0a0f1d; color: #f5f7fb; }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.22), transparent 30%),
+        radial-gradient(circle at center, rgba(236, 72, 153, 0.12), transparent 35%),
+        linear-gradient(180deg, #0a0f1d 0%, #10182e 55%, #0a0f1d 100%);
+    }
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,0.1); }
+    .glass-strong { background: rgba(255,255,255,0.08); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.12); }
+    .section-line { border-top: 1px solid rgba(255,255,255,0.08); }
+    .glow { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px rgba(0,0,0,0.35); }
+    .gradient-text { background: linear-gradient(90deg, #8b5cf6, #06b6d4, #ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; }
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .mobile-menu.open { max-height: 700px; }
+    .article p { color: #d1d5db; line-height: 1.95; margin-top: 1rem; }
+    .article h2 { font-size: 1.75rem; font-weight: 700; margin-top: 2.5rem; }
+    .article ul { margin-top: 1rem; padding-left: 1.25rem; color: #d1d5db; }
+    .article li { margin-top: 0.6rem; }
+  </style>
+</head>
+<body>
+  <a href="contact.html" class="whatsapp-float px-5 py-3 rounded-full bg-green-500 text-white font-semibold shadow-lg hover:bg-green-400 transition">WhatsApp 諮詢</a>
+  <div class="w-full border-b border-white/10 bg-black/20 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end text-xs md:text-sm text-gray-300"><span class="text-cyan-300 mr-2">香港時間</span><span id="current-datetime">載入時間中...</span></div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-black/20 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div><a href="index.html" class="text-xl md:text-2xl font-bold tracking-wide">ConcepTheory</a><div class="text-xs text-gray-400">Where strategy meets execution</div></div>
+        <nav class="hidden lg:flex items-center gap-6 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden md:inline-flex px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+          <button id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/15 bg-white/5 text-white" type="button">☰</button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="mobile-menu lg:hidden">
+        <div class="mt-4 glass rounded-2xl p-4 flex flex-col gap-3 text-sm text-gray-300">
+          <a href="index.html#about" class="hover:text-white">關於我哋</a>
+          <a href="index.html#services" class="hover:text-white">服務</a>
+          <a href="index.html#cases" class="hover:text-white">案例</a>
+          <a href="index.html#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="index.html#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+          <a href="contact.html" class="mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即諮詢</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero-bg">
+    <div class="max-w-4xl mx-auto px-6 py-20 md:py-24">
+      <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">KOL Collaboration</p>
+      <h1 class="text-4xl md:text-6xl font-bold mt-4 leading-tight">KOL 合作點樣先唔會變成一次性曝光？</h1>
+      <p class="text-gray-300 text-lg mt-6 leading-relaxed">
+        好多品牌做 KOL 合作，結果只得到一次貼文、幾日流量，之後就無後續。
+        問題通常唔係合作本身，而係合作設計方式太短視。
+      </p>
+    </div>
+  </section>
+
+  <section class="section-line py-16">
+    <article class="max-w-4xl mx-auto px-6 article">
+      <p>
+        KOL 合作之所以成日被質疑，係因為好多人只睇表面數字：幾多 follower、幾多 like、幾多 view。
+        但如果品牌真正想要嘅係更長線信任感、內容資產同受眾觸達，咁合作設計就唔可以只停留喺「出一篇嘢」。
+      </p>
+
+      <h2>第一步：唔係揀最紅，而係揀最啱</h2>
+      <p>
+        真正有效嘅合作對象，未必係最大帳號，而係嗰個同你品牌調性、受眾語境、內容方式最接近嘅人。
+      </p>
+      <ul>
+        <li>對方受眾係咪真係你想接觸嘅人？</li>
+        <li>對方內容風格同你品牌適唔適合？</li>
+        <li>如果由佢介紹你，觀眾會唔會覺得自然？</li>
+      </ul>
+      <p>
+        呢啲問題通常比 follower 數更重要。因為觀眾對內容嘅接受程度，好大程度取決於「夾唔夾」。
+      </p>
+
+      <h2>第二步：合作內容角度要自然</h2>
+      <p>
+        好多合作失敗，唔係因為 KOL 唔夠影響力，而係內容角度太硬。
+        如果觀眾一眼就覺得係生硬賣廣告，咁就算曝光高，都未必有真正品牌效果。
+      </p>
+      <p>
+        更好做法係設計一個貼近創作者本身內容脈絡嘅切入位，
+        令品牌自然咁出現喺故事、體驗、日常、比較或者教學入面。
+      </p>
+
+      <h2>第三步：合作唔應該只停留喺單一平台</h2>
+      <p>
+        一次合作內容，其實可以延伸成好多品牌資產，例如：
+      </p>
+      <ul>
+        <li>社交媒體二次發佈素材</li>
+        <li>網站 landing page 或案例展示</li>
+        <li>廣告創意方向參考</li>
+        <li>品牌 FAQ 或內容角度延伸</li>
+      </ul>
+      <p>
+        如果品牌無諗呢啲後續，合作就好容易只剩下一次性曝光。
+      </p>
+
+      <h2>第四步：合作之前要清楚目標</h2>
+      <p>品牌做 KOL 合作前，應該先問自己目標係乜：</p>
+      <ul>
+        <li>想快速增加曝光？</li>
+        <li>想教育市場？</li>
+        <li>想提升品牌信任感？</li>
+        <li>想帶流量去網站或 landing page？</li>
+      </ul>
+      <p>
+        因為唔同目標，會影響合作對象、內容格式、CTA、平台選擇同 KPI 設定。
+      </p>
+
+      <h2>總結</h2>
+      <p>
+        KOL 合作最怕嘅唔係無曝光，而係有曝光但無品牌累積。
+        如果品牌可以由揀人、內容角度、平台節奏到後續延伸一齊諗，
+        合作就唔止係一篇 sponsored post，而會變成品牌內容系統其中一部分。
+      </p>
+
+      <div class="glass-strong rounded-3xl p-8 mt-12 glow">
+        <h3 class="text-2xl font-bold">想規劃更有策略嘅 KOL 合作？</h3>
+        <p class="mt-4 text-gray-300">如果你想由合作對象、內容切入到 campaign 延伸一齊整理，可以直接聯絡我哋。</p>
+        <div class="mt-6 flex flex-wrap gap-4">
+          <a href="kol-collaboration.html" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">了解 KOL 合作服務</a>
+          <a href="contact.html" class="px-6 py-3 rounded-full border border-white/20 hover:bg-white/10 transition">立即查詢</a>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <footer class="section-line py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2"><h3 class="text-2xl font-bold">ConcepTheory</h3><p class="text-gray-300 mt-4 leading-relaxed max-w-xl">我哋為品牌提供網站製作、SEO、GEO、Google Maps、社交媒體、內容策劃及 KOL 合作等整合服務，幫助你建立更完整嘅數碼曝光系統。</p></div>
+      <div><div class="font-semibold mb-4">服務</div><ul class="space-y-2 text-gray-300 text-sm"><li><a href="website-design.html" class="hover:text-white">網站製作</a></li><li><a href="seo.html" class="hover:text-white">SEO</a></li><li><a href="geo.html" class="hover:text-white">GEO</a></li><li><a href="google-maps.html" class="hover:text-white">Google Maps</a></li><li><a href="social-media.html" class="hover:text-white">社交媒體</a></li><li><a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a></li></ul></div>
+      <div><div class="font-semibold mb-4">更多</div><ul class="space-y-2 text-gray-300 text-sm"><li><a href="join-us.html" class="hover:text-white">加入我哋</a></li><li><a href="blog_index.html" class="hover:text-white">Blog</a></li><li><a href="contact.html" class="hover:text-white">聯絡我哋</a></li></ul></div>
+    </div>
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">© 2026 ConcepTheory. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function updateDateTime() {
+      const el = document.getElementById("current-datetime");
+      if (!el) return;
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat("zh-HK", {
+        timeZone: "Asia/Hong_Kong",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
+      el.textContent = formatter.format(now);
+    }
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("open");
+        menuButton.textContent = mobileMenu.classList.contains("open") ? "✕" : "☰";
+      });
+      mobileMenu.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuButton.textContent = "☰";
+        });
+      });
+    }
+  </script>
+</body>
+</html>

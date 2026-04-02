@@ -1,62 +1,395 @@
 <!DOCTYPE html>
-<html lang="zh-Hant-HK">
+<html lang="zh-HK">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8分鐘思維實驗室 | 8-Min Mind Lab</title>
-    <style>
-        body { background: #0d1117; color: #c9d1d9; font-family: 'Courier New', Courier, monospace; line-height: 1.6; padding: 20px; max-width: 800px; margin: auto; }
-        header { border-bottom: 2px solid #238636; padding-bottom: 20px; margin-bottom: 30px; }
-        h1 { color: #238636; font-size: 1.8rem; margin-bottom: 5px; }
-        .slogan { font-style: italic; color: #8b949e; font-size: 0.9rem; }
-        .manifesto { background: #161b22; border-left: 4px solid #da3633; padding: 20px; margin: 20px 0; font-size: 1rem; color: #f0f6fc; }
-        .post-list { list-style: none; padding: 0; }
-        .post-item { border-bottom: 1px solid #21262d; padding: 15px 0; }
-        .post-title { color: #58a6ff; font-weight: bold; text-decoration: none; font-size: 1.1rem; display: block; margin-bottom: 5px; }
-        .post-meta { color: #8b949e; font-size: 0.8rem; }
-        .tag { background: #238636; color: white; padding: 2px 8px; border-radius: 10px; margin-right: 5px; }
-        footer { margin-top: 50px; font-size: 0.7rem; color: #484f58; text-align: center; border-top: 1px solid #21262d; padding-top: 20px; }
-        .raw-content { background: #000; border: 1px solid #30363d; padding: 15px; border-radius: 5px; font-size: 0.9rem; white-space: pre-wrap; margin-top: 10px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ConcepTheory｜Where Strategy Meets Execution</title>
+  <meta name="description" content="ConcepTheory 提供網站製作、SEO、GEO、Google Maps、社交媒體及 KOL 合作等整合數碼曝光服務。" />
+  <meta property="og:title" content="ConcepTheory｜Where Strategy Meets Execution" />
+  <meta property="og:description" content="網站、搜尋、本地曝光、社交媒體與內容策略，為品牌建立更完整數碼曝光系統。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_HK" />
+  <meta name="theme-color" content="#0a0f1d" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans HK", sans-serif;
+      background: #0a0f1d;
+      color: #f5f7fb;
+    }
+    .hero-bg {
+      background:
+        radial-gradient(circle at top left, rgba(139, 92, 246, 0.35), transparent 35%),
+        radial-gradient(circle at top right, rgba(6, 182, 212, 0.22), transparent 30%),
+        radial-gradient(circle at center, rgba(236, 72, 153, 0.12), transparent 35%),
+        linear-gradient(180deg, #0a0f1d 0%, #10182e 55%, #0a0f1d 100%);
+    }
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .glass-strong {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .gradient-text {
+      background: linear-gradient(90deg, #8b5cf6, #06b6d4, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .section-line { border-top: 1px solid rgba(255,255,255,0.08); }
+    .glow { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 20px 60px rgba(0,0,0,0.35); }
+    .whatsapp-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; }
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .mobile-menu.open { max-height: 700px; }
+  </style>
 </head>
 <body>
+  <a href="contact.html" class="whatsapp-float px-5 py-3 rounded-full bg-green-500 text-white font-semibold shadow-lg hover:bg-green-400 transition">
+    WhatsApp 諮詢
+  </a>
 
-<header>
-    <h1>🔬 8分鐘思維實驗室</h1>
-    <div class="slogan">8-Min Mind Lab：由黑房傾到宇宙，我嘅思考紀錄儀。</div>
-</header>
+  <div class="w-full border-b border-white/10 bg-black/20 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-6 py-2 flex justify-end text-xs md:text-sm text-gray-300">
+      <span class="text-cyan-300 mr-2">香港時間</span>
+      <span id="current-datetime">載入時間中...</span>
+    </div>
+  </div>
 
-<div class="manifesto">
-    <strong>【創作者宣言】</strong><br><br>
-    去佢嘅演算法！我哋唔係數據。我決定廢鬼事理人哋點睇，容許大腦「肚痾肚瀉」，接受一個唔完美嘅自己。<br><br>
-    喺呢個過度包裝嘅世界，我選擇喺混亂入面搵返最真實嘅靈魂。
-</div>
-
-<h3>📂 最新實驗紀錄 (Lab Notes)</h3>
-
-<ul class="post-list">
-    <!-- 第一篇正式文章 -->
-    <li class="post-item">
-        <span class="post-title">LAB_001：點解我要整呢個實驗室？</span>
-        <div class="post-meta">
-            <span class="tag">#思維革命</span> <span class="tag">#反演算法</span> 2026-03-04
+  <header class="sticky top-0 z-50 bg-black/20 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <a href="index.html" class="text-xl md:text-2xl font-bold tracking-wide">ConcepTheory</a>
+          <div class="text-xs text-gray-400">Where strategy meets execution</div>
         </div>
-        <div class="raw-content">
-呢個世界包裝得太完美，完美到令人窒息。
-我之前諗咗好耐，想分享宇宙、佛學、收納、靈異，但次次都因為想「整理好先放」而卡住咗幾年。
 
-今日我決定「釋放腦袋」。呢度唔需要精美排版，唔需要迎合演算法。
-只要係我諗到嘅、同 AI 溝通到嘅火花，我就會直接倒落嚟。
+        <nav class="hidden lg:flex items-center gap-6 text-sm text-gray-300">
+          <a href="#about" class="hover:text-white">關於我哋</a>
+          <a href="#services" class="hover:text-white">服務</a>
+          <a href="#cases" class="hover:text-white">案例</a>
+          <a href="#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+        </nav>
 
-雖然好亂，但我相信喺呢堆思維碎片入面，我會撞出一條屬於自己嘅路。
-呢度係 8 分鐘思維實驗室。唔使整齊，只要靈魂。
+        <div class="flex items-center gap-3">
+          <a href="contact.html" class="hidden md:inline-flex px-5 py-2.5 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">
+            立即諮詢
+          </a>
+          <button id="mobile-menu-button" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-white/15 bg-white/5 text-white" aria-label="Open Menu" aria-expanded="false" type="button">
+            ☰
+          </button>
         </div>
-    </li>
-</ul>
+      </div>
 
-<footer>
-    &copy; 8-Min Mind Lab | 2026 | 拒絕過度包裝，擁抱真實混亂
-</footer>
+      <div id="mobile-menu" class="mobile-menu lg:hidden">
+        <div class="mt-4 glass rounded-2xl p-4 flex flex-col gap-3 text-sm text-gray-300">
+          <a href="#about" class="hover:text-white">關於我哋</a>
+          <a href="#services" class="hover:text-white">服務</a>
+          <a href="#cases" class="hover:text-white">案例</a>
+          <a href="#pricing" class="hover:text-white">方案</a>
+          <a href="seo.html" class="hover:text-white">SEO</a>
+          <a href="geo.html" class="hover:text-white">GEO</a>
+          <a href="google-maps.html" class="hover:text-white">Google Maps</a>
+          <a href="social-media.html" class="hover:text-white">社交媒體</a>
+          <a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a>
+          <a href="join-us.html" class="hover:text-white">加入我哋</a>
+          <a href="blog_index.html" class="hover:text-white">Blog</a>
+          <a href="#faq" class="hover:text-white">FAQ</a>
+          <a href="contact.html" class="hover:text-white">聯絡</a>
+          <a href="contact.html" class="mt-2 inline-flex justify-center px-5 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">
+            立即諮詢
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
 
+  <section class="hero-bg overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-sm uppercase tracking-[0.3em] text-cyan-300 mb-4">Integrated Digital Visibility</p>
+        <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
+          Where strategy meets execution，
+          <span class="gradient-text">幫品牌建立更完整曝光系統</span>
+        </h1>
+        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+          我哋結合網站製作、SEO、GEO、Google Maps、社交媒體、內容策劃同 KOL 合作，
+          幫品牌由門面、搜尋、本地曝光到內容觸達，建立更有系統嘅成長基礎。
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#services" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">睇服務</a>
+          <a href="contact.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">立即諮詢</a>
+        </div>
+      </div>
+
+      <div class="glass-strong rounded-3xl p-8 glow">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="glass rounded-2xl p-5">
+            <div class="text-cyan-300 text-sm">Website</div>
+            <div class="font-semibold mt-2">品牌網站與結構規劃</div>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <div class="text-cyan-300 text-sm">SEO</div>
+            <div class="font-semibold mt-2">自然搜尋曝光基礎</div>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <div class="text-cyan-300 text-sm">GEO</div>
+            <div class="font-semibold mt-2">AI 搜尋時代內容可見度</div>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <div class="text-cyan-300 text-sm">Google Maps</div>
+            <div class="font-semibold mt-2">本地搜尋與查詢入口</div>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <div class="text-cyan-300 text-sm">Social Media</div>
+            <div class="font-semibold mt-2">內容節奏與品牌印象</div>
+          </div>
+          <div class="glass rounded-2xl p-5">
+            <div class="text-cyan-300 text-sm">KOL</div>
+            <div class="font-semibold mt-2">合作策略與內容延伸</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
+      <div>
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">About</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">我哋唔止做單一項目，而係幫你整理整體曝光系統</h2>
+      </div>
+      <div class="text-gray-300 text-lg leading-relaxed">
+        好多品牌唔係無做推廣，而係每樣都分散、無連結、無系統。
+        ConcepTheory 希望將網站、搜尋、內容同合作曝光整合起來，
+        令品牌唔只係「出現」，而係更容易被理解、被信任、被選擇。
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-3xl">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Services</p>
+        <h2 class="text-3xl md:text-5xl font-bold mt-4">服務方向</h2>
+      </div>
+
+      <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="website-design.html" class="glass rounded-3xl p-7 hover:bg-white/10 transition">
+          <h3 class="text-2xl font-semibold">網站製作</h3>
+          <p class="text-gray-300 mt-4">建立清晰品牌門面、服務頁結構與轉化路徑。</p>
+        </a>
+
+        <a href="seo.html" class="glass rounded-3xl p-7 hover:bg-white/10 transition">
+          <h3 class="text-2xl font-semibold">SEO</h3>
+          <p class="text-gray-300 mt-4">提升自然搜尋曝光，建立長線流量基礎。</p>
+        </a>
+
+        <a href="geo.html" class="glass rounded-3xl p-7 hover:bg-white/10 transition">
+          <h3 class="text-2xl font-semibold">GEO</h3>
+          <p class="text-gray-300 mt-4">配合 AI 搜尋趨勢，提升內容被理解與引用機會。</p>
+        </a>
+
+        <a href="google-maps.html" class="glass rounded-3xl p-7 hover:bg-white/10 transition">
+          <h3 class="text-2xl font-semibold">Google Maps</h3>
+          <p class="text-gray-300 mt-4">優化本地搜尋曝光、商家頁資訊與查詢入口。</p>
+        </a>
+
+        <a href="social-media.html" class="glass rounded-3xl p-7 hover:bg-white/10 transition">
+          <h3 class="text-2xl font-semibold">社交媒體</h3>
+          <p class="text-gray-300 mt-4">建立品牌內容節奏、平台角色與持續曝光感。</p>
+        </a>
+
+        <a href="kol-collaboration.html" class="glass rounded-3xl p-7 hover:bg-white/10 transition">
+          <h3 class="text-2xl font-semibold">KOL 合作</h3>
+          <p class="text-gray-300 mt-4">透過匹配合作對象，延伸品牌觸達與內容信任。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="cases" class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Approach</p>
+      <h2 class="text-3xl md:text-5xl font-bold mt-4">我哋重視嘅唔止係曝光，而係曝光之後點樣被理解</h2>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-3xl p-7">
+          <h3 class="text-xl font-semibold">清楚</h3>
+          <p class="text-gray-300 mt-4">先令品牌訊息、服務分類與內容層次更清晰。</p>
+        </div>
+        <div class="glass rounded-3xl p-7">
+          <h3 class="text-xl font-semibold">一致</h3>
+          <p class="text-gray-300 mt-4">網站、搜尋、地圖、社媒與合作內容要互相支持。</p>
+        </div>
+        <div class="glass rounded-3xl p-7">
+          <h3 class="text-xl font-semibold">可持續</h3>
+          <p class="text-gray-300 mt-4">建立唔止一次性活動，而係可累積嘅品牌資產。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Plans</p>
+      <h2 class="text-3xl md:text-5xl font-bold mt-4">可按品牌階段組合服務</h2>
+
+      <div class="mt-12 grid md:grid-cols-3 gap-6">
+        <div class="glass rounded-3xl p-8">
+          <h3 class="text-2xl font-semibold">Start</h3>
+          <p class="text-gray-300 mt-4">適合想先整理網站或單一曝光基礎嘅品牌。</p>
+        </div>
+        <div class="glass-strong rounded-3xl p-8 glow">
+          <h3 class="text-2xl font-semibold">Growth</h3>
+          <p class="text-gray-300 mt-4">適合網站、搜尋、本地曝光一齊規劃嘅品牌。</p>
+        </div>
+        <div class="glass rounded-3xl p-8">
+          <h3 class="text-2xl font-semibold">Integrated</h3>
+          <p class="text-gray-300 mt-4">適合想整合網站、內容、社媒與 KOL 合作嘅品牌。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">FAQ</p>
+      <h2 class="text-3xl md:text-5xl font-bold mt-4">常見問題</h2>
+
+      <div class="mt-12 grid md:grid-cols-2 gap-6">
+        <div class="glass rounded-3xl p-7">
+          <h3 class="text-xl font-semibold">可以只做其中一項服務嗎？</h3>
+          <p class="text-gray-300 mt-4">可以，但我哋通常會一齊評估整體曝光結構，俾你更合理建議。</p>
+        </div>
+        <div class="glass rounded-3xl p-7">
+          <h3 class="text-xl font-semibold">SEO 同 GEO 有咩分別？</h3>
+          <p class="text-gray-300 mt-4">SEO 偏向傳統搜尋曝光，GEO 更聚焦 AI 搜尋與生成式答案可見度。</p>
+        </div>
+        <div class="glass rounded-3xl p-7">
+          <h3 class="text-xl font-semibold">本地生意應該先做咩？</h3>
+          <p class="text-gray-300 mt-4">通常會先睇網站、Google Maps、品牌介紹同基本搜尋內容是否清楚。</p>
+        </div>
+        <div class="glass rounded-3xl p-7">
+          <h3 class="text-xl font-semibold">可以先傾方向再決定嗎？</h3>
+          <p class="text-gray-300 mt-4">可以，你可以先聯絡我哋講你而家狀況，我哋再建議優先次序。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-line py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="glass-strong rounded-3xl p-8 md:p-12 glow">
+        <p class="text-cyan-300 text-sm uppercase tracking-[0.25em]">Contact</p>
+        <h2 class="text-3xl md:text-4xl font-bold mt-4">想整理品牌曝光方向？</h2>
+        <p class="text-gray-300 mt-5 text-lg max-w-3xl leading-relaxed">
+          無論你而家係想整網站、做搜尋、優化本地曝光，定建立社媒與合作內容系統，
+          都可以先同我哋講品牌現況，再一齊睇適合由邊一步開始。
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="contact.html" class="px-6 py-3 rounded-full bg-white text-black font-semibold hover:bg-gray-200 transition">立即聯絡</a>
+          <a href="blog_index.html" class="px-6 py-3 rounded-full border border-white/20 text-white hover:bg-white/10 transition">睇 Blog</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="section-line py-16">
+    <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <h3 class="text-2xl font-bold">ConcepTheory</h3>
+        <p class="text-gray-300 mt-4 leading-relaxed max-w-xl">
+          我哋為品牌提供網站製作、SEO、GEO、Google Maps、社交媒體、內容策劃及 KOL 合作等整合服務，
+          幫助你建立更完整嘅數碼曝光系統。
+        </p>
+      </div>
+
+      <div>
+        <div class="font-semibold mb-4">服務</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="website-design.html" class="hover:text-white">網站製作</a></li>
+          <li><a href="seo.html" class="hover:text-white">SEO</a></li>
+          <li><a href="geo.html" class="hover:text-white">GEO</a></li>
+          <li><a href="google-maps.html" class="hover:text-white">Google Maps</a></li>
+          <li><a href="social-media.html" class="hover:text-white">社交媒體</a></li>
+          <li><a href="kol-collaboration.html" class="hover:text-white">KOL 合作</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="font-semibold mb-4">更多</div>
+        <ul class="space-y-2 text-gray-300 text-sm">
+          <li><a href="join-us.html" class="hover:text-white">加入我哋</a></li>
+          <li><a href="blog_index.html" class="hover:text-white">Blog</a></li>
+          <li><a href="contact.html" class="hover:text-white">聯絡我哋</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 mt-10 pt-6 border-t border-white/10 text-sm text-gray-400">
+      © 2026 ConcepTheory. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function updateDateTime() {
+      const el = document.getElementById("current-datetime");
+      if (!el) return;
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat("zh-HK", {
+        timeZone: "Asia/Hong_Kong",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "long",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: false
+      });
+      el.textContent = formatter.format(now);
+    }
+
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
+
+    const menuButton = document.getElementById("mobile-menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (menuButton && mobileMenu) {
+      menuButton.addEventListener("click", function () {
+        mobileMenu.classList.toggle("open");
+        const expanded = menuButton.getAttribute("aria-expanded") === "true";
+        menuButton.setAttribute("aria-expanded", (!expanded).toString());
+        menuButton.textContent = expanded ? "☰" : "✕";
+      });
+
+      const mobileLinks = mobileMenu.querySelectorAll("a");
+      mobileLinks.forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("open");
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.textContent = "☰";
+        });
+      });
+    }
+  </script>
 </body>
 </html>
